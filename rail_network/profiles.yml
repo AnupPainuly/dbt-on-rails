@@ -1,0 +1,14 @@
+rail_network:
+  outputs:
+    dev:
+      type: duckdb
+      path: data/dev.duckdb
+      extensions:
+        - spatial
+        - httpfs
+      threads: 1
+      attach:
+        - path: 'https://blobs.duckdb.org/nl-railway/train_stations_and_services.duckdb'
+          type: duckdb
+          alias: external_db
+  target: dev
