@@ -4,7 +4,7 @@ dbt_packages/
 
 ## project data
 logs/
-data/railway_network.duckdb
+data/
 analyses/*.html
 
 ## Virtual environments
