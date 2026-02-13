@@ -1,16 +1,16 @@
 {{ config(materialized='table') }}
 
-select
-  {{ dbt_utils.generate_surrogate_key(['id']) }} as province_sk,
-  id as province_id,
-  statnaam as province_name,
-  geom as province_geometry,
-  {{ common_columns() }}
-from st_read({{ source("geojson_external", "nl_provinces") }}) as src
-union all
-select
-  'unknown' as province_sk,
-  -1 as province_id,
-  'unknown' as province_name,
-  NULL as province_geometry,
-  {{ common_columns() }}
+SELECT
+    {{ dbt_utils.generate_surrogate_key(['id']) }} AS province_sk,
+    id                               AS province_id,
+    statnaam                         AS province_name,
+    geom                             AS province_geometry,
+    {{ common_columns() }}
+FROM st_read({{ source("geojson_external", "nl_provinces") }}) AS src
+UNION ALL
+SELECT
+    'unknown' AS province_sk,
+    -1        AS province_id,
+    'unknown' AS province_name,
+    NULL      AS province_geometry,
+    {{ common_columns() }}
