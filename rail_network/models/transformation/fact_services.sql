@@ -1,7 +1,7 @@
 {{ config(materialized='table') }}
 
 SELECT
-    {{ dbt.generate_surrogate_key(['"Service:RDT-ID"','station_sk']) }}       AS service_sk,
+    {{ dbt_utils.generate_surrogate_key(['"Service:RDT-ID"','station_sk']) }}       AS service_sk,
     "Service:Date"                                                            AS service_date,
     "Service:Type"                                                            AS service_type,
     "Service:Company"                                                         AS service_company,
@@ -13,5 +13,5 @@ SELECT
     if("Stop:Departure cancelled" IS NULL, FALSE, "Stop:Departure cancelled") AS service_departure_cancelled,
     {{ common_columns() }}
 FROM {{ source("external_db", "services") }} AS srv
-INNER JOIN {{ ref("dim_nl_train_stations") }} AS stations
+INNER JOIN {{ ref("dim_train_stations") }} AS stations
     ON srv."Stop:Station Code" = stations.station_code

@@ -2,7 +2,7 @@
 version: 2
 
 models:
-  - name: dim_nl_provinces
+  - name: dim_provinces
     description: "Dim table for NL provinces, example of SCD2"
     columns:
       - name: province_sk
@@ -21,7 +21,7 @@ models:
       - name: invocation_id
         description: "The dbt invocation id"
 
-  - name: dim_nl_municipalities
+  - name: dim_municipalities
     description: "Dim table for NL municipalities"
     columns:
       - name: municipality_sk
@@ -35,7 +35,7 @@ models:
         description: "The province in which the municipality is located"
         tests:
           - relationships:
-              to: ref('dim_nl_provinces')
+              to: ref('dim_provinces')
               field: province_sk
       - name: municipality_name
         description: "The municipality name"
@@ -46,7 +46,7 @@ models:
       - name: invocation_id
         description: "The dbt invocation id"
 
-  - name: dim_nl_train_stations
+  - name: dim_train_stations
     description: "Dim table for NL train stations"
     columns:
       - name: station_sk
@@ -60,7 +60,7 @@ models:
         description: "The municipality id in which the station is located"
         tests:
           - relationships:
-              to: ref('dim_nl_municipalities')
+              to: ref('dim_municipalities')
               field: municipality_sk
       - name: station_code
         description: "The code of the station"
@@ -97,7 +97,7 @@ models:
         description: "The station surrogate key"
         tests:
           - relationships:
-              to: ref('dim_nl_train_stations')
+              to: ref('dim_train_stations')
               field: station_sk
       - name: station_arrival_time
         description: "The arrival time in the station"

@@ -12,6 +12,6 @@ sources:
     database: external_db
     schema: main
     tables:
-      - name: station
+      - name: stations
       - name: services
   
