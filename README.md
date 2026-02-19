@@ -44,10 +44,9 @@ dbt docs generate
 dbt docs serve
 ```
 
-Go to [http://localhost:8080](http://localhost:8080) to see the dbt documentation. If you are running this on GitHub CodeSpaces, follow [this section]() to expose port 8080 for access from your browser.
+Go to [http://localhost:8080](http://localhost:8080) to see the dbt documentation.
 
 Press Ctrl + c to stop the document server.
-
 
 
 Let's open a python REPL and check our data, as shown below:
