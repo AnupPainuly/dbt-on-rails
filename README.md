@@ -1,6 +1,6 @@
 # Project Overview
 
-This repository contains a small dbt project and supporting assets for exploring dutch rail network data.
+This repository contains a dbt project and supporting assets for exploring dutch rail network data using duckdb adapter.
 
 
 ## Prerequisites
