@@ -1,4 +1,4 @@
-# dbt-on-rails — Project Overview
+# Project Overview
 
 This repository contains a small dbt project and supporting assets for exploring dutch rail network data.
 
